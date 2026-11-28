@@ -315,3 +315,80 @@ document.getElementById("message")
 
 </body>
 </html>
+
+
+<div class="core">
+  <svg viewBox="0 0 200 200" class="reactor">
+
+    <!-- OUTER RING -->
+    <g>
+      <circle cx="100" cy="100" r="88"
+        fill="none"
+        stroke="#00ffff"
+        stroke-width="3"
+        stroke-dasharray="390 163"
+        stroke-linecap="round"/>
+
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 100 100"
+        to="360 100 100"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </g>
+
+    <!-- MIDDLE RING -->
+    <g>
+      <circle cx="100" cy="100" r="68"
+        fill="none"
+        stroke="#008cff"
+        stroke-width="4"
+        stroke-dasharray="220 100"
+        stroke-linecap="round"/>
+
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="360 100 100"
+        to="0 100 100"
+        dur="2.5s"
+        repeatCount="indefinite"/>
+    </g>
+
+    <!-- INNER RING -->
+    <g>
+      <circle cx="100" cy="100" r="48"
+        fill="none"
+        stroke="#00ffff"
+        stroke-width="3"
+        stroke-dasharray="100 80"
+        stroke-linecap="round"/>
+
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 100 100"
+        to="360 100 100"
+        dur="1.5s"
+        repeatCount="indefinite"/>
+    </g>
+
+    <!-- CENTER -->
+    <circle cx="100" cy="100" r="19"
+      fill="#00ffff"
+      filter="url(#glow)"/>
+
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="7"
+          result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+  </svg>
+</div>
