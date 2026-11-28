@@ -1,50 +1,3 @@
-6<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ULTRAN</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>ULTRAN</h1><p>MOBILE EDITION</p></header>
-
-  <div class="core">
-    <div class="ring r1"></div>
-    <div class="ring r2"></div>
-    <div class="center"></div>
-  </div>
-  <p class="core-text">CORE ACTIVE</p>
-
-  <div class="status">
-    <h2>SYSTEM STATUS</h2>
-    <div class="row"><span>AI CORE</span><b class="on">• ONLINE</b></div>
-    <div class="row"><span>NETWORK</span><b class="on">• ONLINE</b></div>
-    <div class="row"><span>VOICE</span><b class="off">○ LOCKED</b></div>
-    <div class="row"><span>MEMORY</span><b class="off">○ LOCKED</b></div>
-  </div>
-
-  <div class="chat" id="chat"></div>
-  <div class="input-area">
-    <input id="msg" placeholder="Ask ULTRAN...">
-    <button id="send">SEND</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-<div class="core">
-  <div class="inner-core"></div>
-</div>
-
-
-<div class="core">
-    <div class="ring ring1"></div>
-    <div class="ring ring2"></div>
-    <div class="ring ring3"></div>
-    <div class="center"></div>
-</div>
 
 <!DOCTYPE html>
 <html>
@@ -53,437 +6,53 @@
 <title>ULTRAN AI</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
 body {
-    background: #000;
-    color: #00ffff;
-    font-family: Arial, sans-serif;
+    background: black;
+    color: cyan;
     text-align: center;
-    margin: 0;
-    padding: 25px 12px;
-}
-
-.container {
-    max-width: 400px;
-    margin: auto;
-}
-
-h1 {
-    letter-spacing: 7px;
-    font-size: 28px;
-    text-shadow: 0 0 15px cyan;
-}
-
-.subtitle {
-    font-size: 9px;
-    letter-spacing: 4px;
-    color: #008b99;
-}
-
-/* ROTATING CORE */
-
-.core {
-    width: 190px;
-    height: 190px;
-    position: relative;
-    margin: 35px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ring {
-    position: absolute;
-    border-radius: 50%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        cyan 45deg,
-        #0077ff 100deg,
-        transparent 150deg,
-        transparent 180deg,
-        cyan 230deg,
-        #0077ff 290deg,
-        transparent 330deg,
-        transparent 360deg
-    );
-
-    -webkit-mask: radial-gradient(
-        farthest-side,
-        transparent calc(100% - 4px),
-        #000 calc(100% - 3px)
-    );
-
-    mask: radial-gradient(
-        farthest-side,
-        transparent calc(100% - 4px),
-        #000 calc(100% - 3px)
-    );
-
-    filter: drop-shadow(0 0 5px cyan);
-}
-
-.ring1 {
-    width: 190px;
-    height: 190px;
-    animation: clockwise 3s linear infinite;
-}
-
-.ring2 {
-    width: 150px;
-    height: 150px;
-    animation: anticlockwise 2s linear infinite;
-}
-
-.ring3 {
-    width: 110px;
-    height: 110px;
-    animation: clockwise 1.5s linear infinite;
-}
-
-.center {
-    width: 45px;
-    height: 45px;
-    background: cyan;
-    border-radius: 50%;
-    box-shadow: 0 0 15px cyan,
-                0 0 35px cyan,
-                0 0 60px #008cff;
-    animation: glow 1s ease-in-out infinite alternate;
-}
-
-@keyframes clockwise {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes anticlockwise {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-}
-
-@keyframes glow {
-    from { opacity: .5; }
-    to { opacity: 1; }
-}
-
-/* STATUS */
-
-.core-status {
-    font-size: 10px;
-    letter-spacing: 4px;
-}
-
-.status {
-    margin: 25px auto;
-    padding: 15px;
-    border: 1px solid #00575b;
-    background: #020b0c;
-    text-align: left;
-    box-shadow: 0 0 10px #003c40;
-}
-
-.status h3 {
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.status p {
-    font-size: 11px;
-    color: #00bbbb;
-}
-
-.online {
-    float: right;
-    color: #00ff55;
-}
-
-.locked {
-    float: right;
-    color: #ff4444;
-}
-
-/* CHAT */
-
-.chat {
-    height: 140px;
-    border: 1px solid #00575b;
-    padding: 12px;
-    text-align: left;
-    font-size: 12px;
-    overflow-y: auto;
-    background: #010606;
-}
-
-.input-area {
-    display: flex;
-    margin-top: 10px;
-    gap: 5px;
-}
-
-input {
-    flex: 1;
-    min-width: 0;
-    padding: 12px;
-    background: black;
-    color: cyan;
-    border: 1px solid cyan;
-}
-
-button {
-    padding: 10px 15px;
-    background: cyan;
-    border: none;
-    font-weight: bold;
-}
-
-.footer {
-    margin-top: 20px;
-    font-size: 9px;
-    color: #00777b;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>U.L.T.R.A.N</h1>
-<div class="subtitle">PERSONAL AI SYSTEM</div>
-
-<div class="core">
-    <div class="ring ring1"></div>
-    <div class="ring ring2"></div>
-    <div class="ring ring3"></div>
-    <div class="center"></div>
-</div>
-
-<div class="core-status">CORE ACTIVE</div>
-
-<div class="status">
-    <h3>SYSTEM STATUS</h3>
-    <p>AI CORE <span class="online">ONLINE</span></p>
-    <p>NETWORK <span class="online">ONLINE</span></p>
-    <p>VOICE <span class="locked">LOCKED</span></p>
-    <p>MEMORY <span class="locked">LOCKED</span></p>
-</div>
-
-<div class="chat" id="chat">
-    <p>ULTRAN: SYSTEM ONLINE.</p>
-    <p>How may I assist you, Boss?</p>
-</div>
-
-<div class="input-area">
-    <input id="message" placeholder="Enter message...">
-    <button onclick="sendMessage()">SEND</button>
-</div>
-
-<div class="footer">ULTRAN AI SYSTEM</div>
-
-</div>
-
-<script>
-function sendMessage() {
-    const input = document.getElementById("message");
-    const chat = document.getElementById("chat");
-
-    const msg = input.value.trim();
-
-    if (!msg) return;
-
-    const p = document.createElement("p");
-    p.textContent = "YOU: " + msg;
-    chat.appendChild(p);
-
-    const reply = document.createElement("p");
-    reply.textContent = "ULTRAN: Message received.";
-    chat.appendChild(reply);
-
-    input.value = "";
-    chat.scrollTop = chat.scrollHeight;
-}
-
-document.getElementById("message")
-.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") sendMessage();
-});
-</script>
-
-</body>
-</html>
-
-
-<div class="core">
-  <svg viewBox="0 0 200 200" class="reactor">
-
-    <!-- OUTER RING -->
-    <g>
-      <circle cx="100" cy="100" r="88"
-        fill="none"
-        stroke="#00ffff"
-        stroke-width="3"
-        stroke-dasharray="390 163"
-        stroke-linecap="round"/>
-
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="0 100 100"
-        to="360 100 100"
-        dur="4s"
-        repeatCount="indefinite"/>
-    </g>
-
-    <!-- MIDDLE RING -->
-    <g>
-      <circle cx="100" cy="100" r="68"
-        fill="none"
-        stroke="#008cff"
-        stroke-width="4"
-        stroke-dasharray="220 100"
-        stroke-linecap="round"/>
-
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="360 100 100"
-        to="0 100 100"
-        dur="2.5s"
-        repeatCount="indefinite"/>
-    </g>
-
-    <!-- INNER RING -->
-    <g>
-      <circle cx="100" cy="100" r="48"
-        fill="none"
-        stroke="#00ffff"
-        stroke-width="3"
-        stroke-dasharray="100 80"
-        stroke-linecap="round"/>
-
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="0 100 100"
-        to="360 100 100"
-        dur="1.5s"
-        repeatCount="indefinite"/>
-    </g>
-
-    <!-- CENTER -->
-    <circle cx="100" cy="100" r="19"
-      fill="#00ffff"
-      filter="url(#glow)"/>
-
-    <defs>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="7"
-          result="blur"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-
-  </svg>
-</div>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ULTRAN AI</title>
-
-<style>
-body {
-    background: black;
-    color: cyan;
     font-family: Arial;
-    text-align: center;
 }
 
 h1 {
-    margin-top: 30px;
     letter-spacing: 8px;
     text-shadow: 0 0 15px cyan;
 }
 
-.ultran-core {
-    width: 220px;
-    height: 220px;
-    position: relative;
-    margin: 60px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.core {
+    width: 240px;
+    height: 240px;
+    margin: 50px auto;
 }
 
-.ultran-ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 5px dashed cyan;
-    box-shadow: 0 0 12px cyan;
-    animation-timing-function: linear !important;
-    animation-iteration-count: infinite !important;
-    animation-play-state: running !important;
-    will-change: transform;
+svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
-.ultran-orbit-a {
-    width: 210px;
-    height: 210px;
-    border-top-color: cyan;
-    border-bottom-color: #0066ff;
-    border-left-color: transparent;
-    animation: ultran-spin-a 3s linear infinite !important;
+.arc {
+    fill: none;
+    stroke: #00ffff;
+    stroke-width: 5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 7px cyan);
 }
 
-.ultran-orbit-b {
-    width: 160px;
-    height: 160px;
-    border-style: solid;
-    border-top-color: #0088ff;
-    border-bottom-color: transparent;
-    animation: ultran-spin-b 2s linear infinite !important;
+.arc2 {
+    stroke: #0088ff;
+    stroke-width: 6;
 }
 
-.ultran-orbit-c {
-    width: 110px;
-    height: 110px;
-    border-style: dashed;
-    border-color: cyan;
-    animation: ultran-spin-a 1s linear infinite !important;
+.arc3 {
+    stroke: #00ffff;
+    stroke-width: 4;
 }
 
-.ultran-center {
-    width: 35px;
-    height: 35px;
-    background: cyan;
-    border-radius: 50%;
-    box-shadow: 0 0 20px cyan, 0 0 50px cyan;
-    animation: ultran-glow 1s ease-in-out infinite alternate;
+.center {
+    fill: cyan;
+    filter: drop-shadow(0 0 12px cyan);
 }
 
-@keyframes ultran-spin-a {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes ultran-spin-b {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-}
-
-@keyframes ultran-glow {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
 </style>
 </head>
 
@@ -492,15 +61,66 @@ h1 {
 <h1>ULTRAN</h1>
 <p>PERSONAL AI SYSTEM</p>
 
-<div class="ultran-core">
-    <div class="ultran-ring ultran-orbit-a"></div>
-    <div class="ultran-ring ultran-orbit-b"></div>
-    <div class="ultran-ring ultran-orbit-c"></div>
-    <div class="ultran-center"></div>
+<div class="core">
+
+<svg viewBox="0 0 200 200">
+
+<g id="ring1">
+    <circle class="arc"
+    cx="100" cy="100" r="90"
+    stroke-dasharray="120 35 65 35 100 210"/>
+</g>
+
+<g id="ring2">
+    <circle class="arc arc2"
+    cx="100" cy="100" r="70"
+    stroke-dasharray="100 45 65 230"/>
+</g>
+
+<g id="ring3">
+    <circle class="arc arc3"
+    cx="100" cy="100" r="49"
+    stroke-dasharray="60 35 50 35 60 70"/>
+</g>
+
+<circle class="center"
+cx="100" cy="100" r="18"/>
+
+</svg>
 </div>
 
 <h3>CORE ACTIVE</h3>
 
+<script>
+
+let angle1 = 0;
+let angle2 = 0;
+let angle3 = 0;
+
+function animateCore() {
+
+    angle1 += 2;
+    angle2 -= 3;
+    angle3 += 5;
+
+    document.getElementById("ring1")
+    .setAttribute("transform",
+    "rotate(" + angle1 + " 100 100)");
+
+    document.getElementById("ring2")
+    .setAttribute("transform",
+    "rotate(" + angle2 + " 100 100)");
+
+    document.getElementById("ring3")
+    .setAttribute("transform",
+    "rotate(" + angle3 + " 100 100)");
+
+    requestAnimationFrame(animateCore);
+}
+
+animateCore();
+
+</script>
+
 </body>
 </html>
-
