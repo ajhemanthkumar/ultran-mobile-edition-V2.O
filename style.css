@@ -86,3 +86,77 @@ header p {
     transform: rotate(360deg);
   }
 }
+
+
+.core {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    margin: 40px auto;
+    border-radius: 50%;
+}
+
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    box-sizing: border-box;
+}
+
+.ring1 {
+    inset: 0;
+    border-top: 4px solid cyan;
+    border-bottom: 4px solid cyan;
+    border-left: 4px solid transparent;
+    border-right: 4px solid #008cff;
+    box-shadow: 0 0 12px cyan;
+    animation: spin1 3s linear infinite;
+}
+
+.ring2 {
+    inset: 15px;
+    border-top: 4px solid #008cff;
+    border-left: 4px solid cyan;
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid cyan;
+    box-shadow: 0 0 12px #008cff;
+    animation: spin2 2s linear infinite;
+}
+
+.ring3 {
+    inset: 30px;
+    border-top: 3px solid cyan;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid #008cff;
+    border-left: 3px solid transparent;
+    animation: spin1 1.5s linear infinite;
+}
+
+.center {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: cyan;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px cyan,
+                0 0 35px cyan;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes spin1 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin2 {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
